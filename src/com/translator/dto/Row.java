@@ -44,4 +44,8 @@ public class Row {
     public void setValues(String values) {
         this.values = values;
     }
+
+    public String toString(){
+        return this.values;
+    }
 }

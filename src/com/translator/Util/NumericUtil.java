@@ -6,10 +6,10 @@ package com.translator.Util;
 public class NumericUtil {
 
     public static float getFloat(String value) {
-        return Float.valueOf(value.substring(1, value.length() - 1));
+        return Float.valueOf(value.substring(1, value.length()));
     }
 
     public static int getInt(String value) {
-        return Integer.valueOf(value.substring(1,value.length()-1));
+        return Integer.valueOf(value.substring(1,value.length()));
     }
 }

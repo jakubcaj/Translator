@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         BufferedReader br = null;
         try {
-            br = new BufferedReader(new FileReader("output.out"));
+            br = new BufferedReader(new FileReader("src/com/translator/output.out"));
             String row;
             RowImpl resultSet = new RowImpl();
 

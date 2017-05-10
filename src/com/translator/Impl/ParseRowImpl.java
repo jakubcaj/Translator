@@ -9,7 +9,7 @@ import com.translator.dto.Row;
 public class ParseRowImpl {
 
     public static Row getRow(String row){
-        String[] rowArray = row.split(" ",1);
+        String[] rowArray = row.split(" ",2);
         if(rowArray.length > 1) {
             if(rowArray[0].equals("save")){
                 return new Row(rowArray[0], null, rowArray[1]);
