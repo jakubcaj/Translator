@@ -1,0 +1,107 @@
+push S"<Konstanty>"
+write 1
+push S"10: "
+push I10
+write 2
+push S" 1.25: "
+push F1.25
+write 2
+push S""
+write 1
+push S"<Promenne>"
+write 1
+push S"Abcd"
+save s
+push S"s(Abcd): "
+load s
+write 2
+push F314.159
+save d
+push S"d(3.14159e2): "
+load d
+write 2
+push I500
+uminus
+save n
+push S"n(-500): "
+load n
+write 2
+push S""
+write 1
+push Btrue
+save k
+push S"k(True): "
+load k
+write 2
+push S""
+write 1
+push S"<Vyrazy>"
+write 1
+push S"2+3*5(17): "
+push I2
+push I3
+push I5
+mul
+add
+write 2
+push S"17 / 3(5): "
+push I17
+push I3
+div
+write 2
+push S"17 mod 3(2): "
+push I17
+push I3
+mod
+write 2
+push S"2.5*2.5/6.25(1.0): "
+push F2.5
+push F2.5
+mul
+push F6.25
+div
+write 2
+push S"1.5*3(4.5): "
+push F1.5
+push I3
+mul
+write 2
+push S"abc+def (abcdef): "
+push S"abc"
+push S"def"
+concat
+write 2
+push S""
+write 1
+push S"<Poznamky>"
+write 1
+push S"<Kompatibilita>"
+write 1
+push I10
+save y
+push S"y (10.0): "
+load y
+write 2
+push S"<Vstup dat - a,b#,c$>"
+write 1
+push I0
+save a
+push F0.0
+save b
+push S""
+save c
+push Btrue
+save e
+read a
+read b
+read c
+read e
+push S"a,b,c,e: "
+load a
+push S","
+load b
+push S","
+load c
+push S","
+load e
+write 8
