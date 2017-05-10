@@ -138,6 +138,7 @@ public class RowImpl {
                             type = "B";
                             break;
                     }
+                    System.out.println(row.getStatement() + ", " + row.getValues() + ": ");
                     rowStack.push(new Row("push", type + scanner.nextLine()));
                     origRowStack.push(row);
                     break;
@@ -146,6 +147,34 @@ public class RowImpl {
                     Row first = rowStack.pop();
                     Row second = rowStack.pop();
                     rowStack.push(new Row("push", NumericUtil.getFloat(second.getValues()) > NumericUtil.getFloat(first.getValues()) ? "Btrue" : "Bfalse"));
+                    origRowStack.push(row);
+                    break;
+                }
+                case "lt": {
+                    Row first = rowStack.pop();
+                    Row second = rowStack.pop();
+                    rowStack.push(new Row("push", NumericUtil.getFloat(second.getValues()) < NumericUtil.getFloat(first.getValues()) ? "Btrue" : "Bfalse"));
+                    origRowStack.push(row);
+                    break;
+                }
+                case "eq": {
+                    Row first = rowStack.pop();
+                    Row second = rowStack.pop();
+                    rowStack.push(new Row("push", NumericUtil.getFloat(second.getValues()) == NumericUtil.getFloat(first.getValues()) ? "Btrue" : "Bfalse"));
+                    origRowStack.push(row);
+                    break;
+                }
+                case "and": {
+                    Row first = rowStack.pop();
+                    Row second = rowStack.pop();
+                    rowStack.push(new Row("push", first.getValues().equals("Btrue") && second.getValues().equals("Btrue") ? "Btrue" : "Bfalse"));
+                    origRowStack.push(row);
+                    break;
+                }
+                case "or": {
+                    Row first = rowStack.pop();
+                    Row second = rowStack.pop();
+                    rowStack.push(new Row("push", first.getValues().equals("Btrue") || second.getValues().equals("Btrue") ? "Btrue" : "Bfalse"));
                     origRowStack.push(row);
                     break;
                 }

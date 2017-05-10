@@ -92,10 +92,14 @@ push S""
 save c
 push Btrue
 save e
-read a
-read b
-read c
-read e
+read INT
+save a
+read FLOAT
+save b
+read STRING
+save c
+read BOOLEAN
+save e
 push S"a,b,c,e: "
 load a
 push S","
