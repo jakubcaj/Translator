@@ -18,6 +18,8 @@ public class Row {
 
     public Row(String statement) {
         this.statement = statement;
+        this.values = "";
+        this.variableValue = "";
     }
 
     public Row(String statement, String value) {
@@ -40,7 +42,7 @@ public class Row {
     }
 
     public String getValues() {
-        return values;
+        return values == null ? " " : values;
     }
 
     public void setValues(String values) {
@@ -48,6 +50,6 @@ public class Row {
     }
 
     public String toString() {
-        return this.values;
+        return this.statement + " " + this.values + " " + this.variableValue;
     }
 }

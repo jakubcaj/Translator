@@ -1,0 +1,26 @@
+push S"enter n:"
+write 1
+read INT
+save n
+push I1
+save result
+push I1
+save i
+label 0
+load i
+load n
+gt
+not
+fjmp 1
+load result
+load i
+mul
+save result
+load i
+push I1
+add
+save i
+jmp 0
+label 1
+load result
+write 1

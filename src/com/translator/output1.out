@@ -1,0 +1,19 @@
+push I3
+push I4
+fjmp 0
+push S"Podminka funguje"
+write 1
+jmp 1
+label 0
+push S"Podminka nefunguje"
+write 1
+label 1
+label 1
+push S"a="
+load a
+write 2
+load a
+push I1
+add
+save a
+fjmp 1
