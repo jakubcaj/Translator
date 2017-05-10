@@ -10,6 +10,6 @@ public class NumericUtil {
     }
 
     public static int getInt(String value) {
-        return Integer.valueOf(value.substring(1,value.length()));
+        return Integer.valueOf(value.substring(1, value.length()));
     }
 }

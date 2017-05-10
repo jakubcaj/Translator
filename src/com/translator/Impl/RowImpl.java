@@ -7,12 +7,9 @@ import com.translator.dto.Row;
 import java.util.HashMap;
 import java.util.Stack;
 
-/**
- * Created by Kuba on 09.05.2017.
- */
 public class RowImpl {
-    Stack<Row> rowStack = new Stack<>();
-    HashMap<String, String> variableMap = new HashMap<>();
+    private Stack<Row> rowStack = new Stack<>();
+    private HashMap<String, String> variableMap = new HashMap<>();
 
 
     public void Add(Row row) {
@@ -30,8 +27,8 @@ public class RowImpl {
                 }
                 //tempStack.stream().forEach(System.out::println);
                 do {
-                    System.out.print(tempStack.pop().replace("\"",""));
-                }while (!tempStack.empty());
+                    System.out.print(tempStack.pop().replace("\"", ""));
+                } while (!tempStack.empty());
                 System.out.println();
                 //System.out.println();
                 break;
@@ -52,8 +49,8 @@ public class RowImpl {
                 Row first = rowStack.pop();
                 Row second = rowStack.pop();
                 if (first.getValues().charAt(0) == 'F' || second.getValues().charAt(0) == 'F') {
-                    rowStack.add(new Row("add", "F" +(NumericUtil.getFloat(second.getValues()) + NumericUtil.getFloat(first.getValues()))));
-                }else{
+                    rowStack.add(new Row("add", "F" + (NumericUtil.getFloat(second.getValues()) + NumericUtil.getFloat(first.getValues()))));
+                } else {
                     rowStack.add(new Row("add", "I" + (NumericUtil.getInt(second.getValues()) + NumericUtil.getInt(first.getValues()))));
                 }
                 break;
@@ -62,8 +59,8 @@ public class RowImpl {
                 Row first = rowStack.pop();
                 Row second = rowStack.pop();
                 if (first.getValues().charAt(0) == 'F' || second.getValues().charAt(0) == 'F') {
-                    rowStack.add(new Row(row.getStatement(), "F" +(NumericUtil.getFloat(first.getValues()) - NumericUtil.getFloat(second.getValues()))));
-                }else{
+                    rowStack.add(new Row(row.getStatement(), "F" + (NumericUtil.getFloat(first.getValues()) - NumericUtil.getFloat(second.getValues()))));
+                } else {
                     rowStack.add(new Row(row.getStatement(), "I" + (NumericUtil.getInt(first.getValues()) - NumericUtil.getInt(second.getValues()))));
                 }
                 break;
@@ -72,8 +69,8 @@ public class RowImpl {
                 Row first = rowStack.pop();
                 Row second = rowStack.pop();
                 if (first.getValues().charAt(0) == 'F' || second.getValues().charAt(0) == 'F') {
-                    rowStack.add(new Row("mul", "F" +(NumericUtil.getFloat(first.getValues()) * NumericUtil.getFloat(second.getValues()))));
-                }else{
+                    rowStack.add(new Row("mul", "F" + (NumericUtil.getFloat(first.getValues()) * NumericUtil.getFloat(second.getValues()))));
+                } else {
                     rowStack.add(new Row("mul", "I" + (NumericUtil.getInt(first.getValues()) * NumericUtil.getInt(second.getValues()))));
                 }
                 break;
@@ -82,8 +79,8 @@ public class RowImpl {
                 Row first = rowStack.pop();
                 Row second = rowStack.pop();
                 if (first.getValues().charAt(0) == 'F' || second.getValues().charAt(0) == 'F') {
-                    rowStack.add(new Row(row.getStatement(), "F" +(NumericUtil.getFloat(second.getValues()) / NumericUtil.getFloat(first.getValues()))));
-                }else{
+                    rowStack.add(new Row(row.getStatement(), "F" + (NumericUtil.getFloat(second.getValues()) / NumericUtil.getFloat(first.getValues()))));
+                } else {
                     rowStack.add(new Row(row.getStatement(), "I" + (NumericUtil.getInt(second.getValues()) / NumericUtil.getInt(first.getValues()))));
                 }
                 break;
@@ -91,12 +88,12 @@ public class RowImpl {
             case "mod": {
                 Row first = rowStack.pop();
                 Row second = rowStack.pop();
-                rowStack.add(new Row(row.getStatement(), "F" +(NumericUtil.getFloat(second.getValues()) % NumericUtil.getFloat(first.getValues()))));
+                rowStack.add(new Row(row.getStatement(), "F" + (NumericUtil.getFloat(second.getValues()) % NumericUtil.getFloat(first.getValues()))));
                 break;
             }
             case "uminus": {
                 Row first = rowStack.pop();
-                rowStack.push(new Row(first.getStatement(), first.getValues().charAt(0) + "-" + first.getValues().substring(1,first.getValues().length()-1)));
+                rowStack.push(new Row(first.getStatement(), first.getValues().charAt(0) + "-" + first.getValues().substring(1, first.getValues().length() - 1)));
                 break;
             }
             case "concat": {
@@ -111,9 +108,4 @@ public class RowImpl {
         //this.rowStack.push(row);
     }
 
-    public void parse() {
-        while (!rowStack.empty()) {
-            //TODO
-        }
-    }
 }

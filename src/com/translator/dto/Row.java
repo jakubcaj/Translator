@@ -16,14 +16,16 @@ public class Row {
         this.variableValue = variableValue;
     }
 
-    public Row(String statement){
+    public Row(String statement) {
         this.statement = statement;
     }
-    public Row(String statement, String value){
+
+    public Row(String statement, String value) {
         this.statement = statement;
         this.values = value;
     }
-    public Row(String statement, String values, String variableName){
+
+    public Row(String statement, String values, String variableName) {
         this.statement = statement;
         this.values = values;
         this.variableValue = variableName;
@@ -45,7 +47,7 @@ public class Row {
         this.values = values;
     }
 
-    public String toString(){
+    public String toString() {
         return this.values;
     }
 }

@@ -18,7 +18,6 @@ public class Main {
                 resultSet.Add(ParseRowImpl.getRow(row));
             }
 
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
